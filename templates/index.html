@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Smart Deadlock Detection and Resource Management</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="hero"><div class="eyebrow">OPERATING SYSTEMS · DBMS</div><h1>Smart Deadlock Detection and Resource Management</h1><p>Analyze resource allocation, calculate the Need Matrix, and check system safety.</p><span id="status" class="status">Checking backend…</span></header>
+<main class="layout">
+<section class="panel">
+<div class="section-head"><div><h2>System Snapshot</h2><p>Demo data is prefilled. Edit values if you want.</p></div><button id="reset" class="secondary">Reset demo</button></div>
+<h3>Maximum Demand</h3><div id="max-grid" class="matrix"></div>
+<h3>Current Allocation</h3><div id="alloc-grid" class="matrix"></div>
+<h3>Available Resources</h3><div id="available" class="available"></div>
+<div class="actions"><button id="analyze">Run Banker's Algorithm</button><button id="load-logs" class="secondary">Refresh DBMS Logs</button></div>
+<div id="error" class="error" role="alert"></div>
+</section>
+<section class="panel results">
+<h2>Analysis Result</h2><div id="result" class="empty">Run the algorithm to see the result.</div>
+<h3>Need Matrix <small>(Maximum − Allocation)</small></h3><div id="need-grid" class="matrix"></div>
+<div class="info"><strong>OS concept:</strong> A state is safe when every process can finish in some order using currently available resources plus resources released by completed processes.</div>
+</section>
+<section class="panel logs-panel">
+<div class="section-head"><div><h2>DBMS: Recent Analysis Logs</h2><p>Each analysis is stored in the local database.</p></div></div>
+<div id="logs" class="logs">No logs loaded yet.</div>
+</section>
+</main>
+<footer>Phase 2 prototype · OS algorithm + database-backed analysis history</footer>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body></html>
